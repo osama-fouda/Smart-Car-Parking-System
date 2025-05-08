@@ -1,0 +1,90 @@
+# 🚗 Smart Parking System – Step by Step Guide
+
+This document explains how to build the Smart Parking System using Arduino, IR sensors, a servo motor, and an LCD display.
+
+---
+
+## 🔧 Step 1: Prepare Components
+
+- Arduino Uno ×1
+- IR Sensor Modules ×2
+- Servo Motor SG90 ×1
+- LCD 16x2 with I2C Module ×1
+- Jumper Wires × multiple
+- Breadboard (optional)
+
+---
+
+## 🔌 Step 2: Wiring the Components
+
+### IR Sensors
+- IR1 VCC → 5V
+- IR1 GND → GND
+- IR1 OUT → D2  
+- IR2 OUT → D3  
+
+### Servo Motor
+- Servo VCC (Red) → 5V  
+- Servo GND (Brown) → GND  
+- Servo Signal (Orange) → D4
+
+### LCD I2C (0x27)
+- SDA → A4  
+- SCL → A5  
+- VCC → 5V  
+- GND → GND
+
+---
+
+## 🧠 Step 3: Upload the Code
+
+1. Open the Arduino IDE.
+2. Install the required libraries:
+   - `LiquidCrystal_I2C`
+   - `Wire.h`
+   - `Servo.h`
+3. Upload the provided code file `Arduino Code.txt` to the Arduino board.
+
+---
+
+## ⚙️ Step 4: Test the System
+
+### Entrance
+- Put your hand (or object) in front of **IR1**.
+- The gate opens (servo rotates).
+- The slot count decreases.
+
+### Exit
+- Put your hand in front of **IR2**.
+- The gate opens (servo rotates).
+- The slot count increases.
+
+---
+
+## 🧪 Step 5: LCD Behavior
+
+- Shows welcome message on startup.
+- Constantly displays:  
+  `Fadel: X` where X is available slots.
+- When full (slot = 0), shows:  
+  `Mfe4 Mkan :(`
+
+---
+
+## 💡 Step 6: Customize
+
+- Change total slots: edit `int Slot = 4;` at the top.
+- Adjust servo angles if needed:
+  - Gate open → `myservo.write(10);`
+  - Gate closed → `myservo.write(110);`
+
+---
+
+
+
+## ✅ Project Completed
+
+Congratulations! Your Smart Parking System is now fully working.
+
+---
+
